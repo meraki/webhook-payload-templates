@@ -1,0 +1,40 @@
+{% capture alert %}
+sentAt: {{sentAt}}
+organizationId: {{organizationId}}
+organizationName: {{organizationName}}
+organizationUrl: {{organizationUrl}}
+networkId: {{networkId}}
+networkName: {{networkName}}
+networkUrl: {{networkUrl}}
+networkTags: {% if networkTags %}{{ networkTags | jsonify}}{% else %}[]{% endif %}
+deviceSerial: {{deviceSerial}}
+deviceMac: {{deviceMac}}
+deviceName: {{deviceName}}
+deviceUrl: {{deviceUrl}}
+deviceTags: {{ deviceTags | jsonify }}
+deviceModel: {{deviceModel}}
+alertId: {{alertId}}
+alertType: {{alertType}}
+alertTypeId: {{alertTypeId}}
+alertLevel: {{alertLevel}}
+occurredAt: {{occurredAt}}
+---
+**Alert Data**
+
+> {{alertData | json_markdown}}
+
+{% endcapture %}
+{% assign alertString = alert | jsonify %}
+{
+    "fields": {
+       "project":
+       {
+          "key": "TP"
+       },
+       "summary": "{{alertType}}",
+       "description": {{alertString}},
+       "issuetype": {
+          "name": "Bug"
+       }
+   }
+}

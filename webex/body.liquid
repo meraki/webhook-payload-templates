@@ -1,0 +1,28 @@
+{% capture markdown %}`
+### {{alertType}}
+Alert ID: {{alertId}}
+Alert level: {{alertLevel}}
+Occurred at: {{occurredAt}}
+
+Organization name: {{organizationName}}
+Organization ID: {{organizationId}}
+Network name: {{networkName}}
+Network ID: {{networkId}}
+
+Device name: {{deviceName}}
+Device serial: {{deviceSerial}}
+Device MAC: {{deviceMac}}
+Device tags: {{deviceTags | jsonify}}
+Device model: {{deviceModel}}
+
+Alert Data
+>>
+{{alertData | json_markdown}}
+{% endcapture %}
+
+
+{
+    "sentAt": "{{sentAt}}",
+    "markdown": {{markdown | jsonify}},
+    "networkId": "{{networkId}}"
+}
