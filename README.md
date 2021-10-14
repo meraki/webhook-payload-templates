@@ -213,3 +213,63 @@ A graphical web app to build and test template files.
 - `Webhooks Management.postman_collection.json`
 
     A postman collection for the related Meraki API operations to manage webhooks is included in this folder.
+
+## Node-RED
+
+- `node-red-webhook-payload.flows.json`
+  A Node-RED flow to help test and manage payload templates
+
+## Python
+- `CRUD_Webhooks.py`
+  A python script to manage payload templates in a Meraki organization
+
+  Navigate into the integration directory, then run the python script (from its relative directory). 
+  ```
+  cd webex
+  ../CRUD_Webhook.py
+  ```
+  ~~~~~
+
+
+
+                                 ./(((((((((((((((((/.
+                            *(((((((((((((((((((((((((((((
+                         .(((((((((((((((((((((((((((((((((((/
+                       ((((((((((((((((((((((((((((((((((((((((/
+                     ,((((((((((((((((((((((((((((((((((((((((((((
+                   .((((((((((((((((((((     ((((((/     ((((((((((,
+                  ((((((((((((((((((((((     ((((((/     (((((((((((
+               /((((((((((((((((((((((((((((((((((((((((((((((((((((
+              ((((((((((((((((((((((((((((((((((((((((((((((((((((((*
+             ((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+            (((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+           ((((((((((((((((((((((((     ((((((((((((((/     (((((((((
+          ,((((((((((((((((((((((((     ((((((((((((((/     ((((((((/
+          (((((((((((((((((((((((((    .//////////////*    .((((((((
+         ,(((((((((((((((((((((((((((((/              ((((((((((((.
+         ((((((((((((((((((((((((((((((/              (((((((((((
+         (((((((((((((((((((((((((((((((((((((((((((((((((((((((*
+        .(((((((((((((((((((((((((((((((((((((((((((((((((((((*
+        /((((((((((((((((((((((((((((((((((((((((((((((((((*
+        (((((((((((((((((((((((((((((((((((((((((((((((*
+        (((((((((((/.                     ....
+        (((((((/
+        (((((
+        (((
+        /.            Welcome to the power of the Meraki API
+
+
+    This is a demo on how to manage custom Webhook-payloadTemplates
+    If you like to upload your custom Webhook-payloadTemplate,
+    the headers.liquid and body.liquid file needs to be in the same dir as this script.
+
+              The use of this tool is on your own risk.
+
+    Please visit:  https://meraki.io
+
+
+
+        Press Enter to continue
+
+
+  ```
