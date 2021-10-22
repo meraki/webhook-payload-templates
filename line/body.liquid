@@ -1,0 +1,142 @@
+{% capture markdown %}Sent At: {{sentAt}}
+
+### {{alertType}}
+Alert ID: {{alertId}}
+Alert level: {{alertLevel}}
+Occurred at: {{occurredAt}}
+
+Organization name: {{organizationName}}
+Organization ID: {{organizationId}}
+Network name: {{networkName}}
+Network ID: {{networkId}}
+
+Device name: {{deviceName}}
+Device serial: {{deviceSerial}}
+Device MAC: {{deviceMac}}
+Device tags: {{deviceTags | jsonify}}
+Device model: {{deviceModel}}
+
+Alert Data
+{{alertData | json_markdown}}
+{% endcapture %}
+
+{
+    "to": "XXX",
+    "messages": [
+        {% if alertData.imageUrl %}
+        {
+          "type": "flex",
+          "altText": "{{alertType}}",
+          "contents": {
+            "type": "bubble",
+            "hero": {
+              "type": "image",
+              "size": "full",
+              "aspectRatio": "16:9",
+              "aspectMode": "cover",
+              "action": {
+                "type": "uri",
+                "uri": "{{alertData.imageUrl}}"
+              },
+              "url": "{{alertData.imageUrl}}"
+            },
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "margin": "lg",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "Place",
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
+                        },
+                        {
+                          "type": "text",
+                          "text": "{{networkName}} - {{deviceName}}",
+                          "wrap": true,
+                          "color": "#666666",
+                          "size": "sm",
+                          "flex": 5
+                        }
+                      ]
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "Time",
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
+                        },
+                        {
+                          "type": "text",
+                          "text": "{{sentAt}}",
+                          "wrap": true,
+                          "color": "#666666",
+                          "size": "sm",
+                          "flex": 5
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "link",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "DEVICE",
+                    "uri": "{{deviceUrl}}"
+                  }
+                },
+                {
+                  "type": "button",
+                  "style": "link",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "IMAGE",
+                    "uri": "{{alertData.imageUrl}}"
+                  }
+                },
+                {
+                  "type": "spacer",
+                  "size": "sm"
+                }
+              ],
+              "flex": 0
+            }
+          }
+        }
+        {% else %}
+        {
+          "type": "text",
+          "text": {{markdown | jsonify}}
+        }
+        {% endif %}
+    ]
+}
