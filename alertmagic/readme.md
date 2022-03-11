@@ -81,7 +81,6 @@ pm.collectionVariables.set("body", JSON.stringify(`{
   "organizationId": "{{organizationId}}",
   "organizationName": "{{organizationName}}",
   "organizationUrl": "{{organizationUrl}}",
-  "sentAd": "{{sentAt}}",
-  "version": "{{version}}"
+  "sentAd": "{{sentAt}}"
 }`));
 ```
