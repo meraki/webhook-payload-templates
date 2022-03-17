@@ -1,0 +1,29 @@
+{
+  "type": 1,
+  "embeds": [{
+      "title": "{{alertType}}",
+      "color": "{% if alertLevel == "critical" %}13632027{% elsif alertLevel == "warning"  %}16098851{% else %}8311585{% endif %}",
+      "description": "Occured at: {{occurredAt | slice: 0,10}} {{occurredAt | slice: 11,8}}",
+      "fields": [
+        {
+        "name": "Organization",
+        "value": "[{{organizationName}}]({{organizationUrl}})",
+        "inline": true
+      },
+      {
+        "name": "Network",
+        "value": "[{{networkName}}]({{networkUrl}})",
+        "inline": true
+      },
+      {
+        "name": "Device",
+        "value": "{{deviceName}}"
+      },
+      {
+        "name": "Alert Data",
+        "value": "{{alertData | json_markdown}}"
+
+      }
+      ]
+  }]
+}
