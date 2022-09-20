@@ -11,7 +11,7 @@ More information at the [AlertMagic Website](https://www.panoramicdata.com/produ
 
 ## Template
 
-- [header.liquid](header.liquid)
+- [headers.liquid](headers.liquid)
 - [body.liquid](body.liquid)
 - HTTP Server URLs:
     * `pdl-alertmagic.azurewebsites.net/api/notify` (production system)
