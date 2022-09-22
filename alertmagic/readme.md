@@ -14,7 +14,7 @@ More information at the [AlertMagic Website](https://www.panoramicdata.com/produ
 - [headers.liquid](headers.liquid)
 - [body.liquid](body.liquid)
 - HTTP Server URLs:
-    * `pdl-alertmagic.azurewebsites.net/api/notify` (production system)
+    * `pdl-alertmagic-production.azurewebsites.net/api/notify` (production system)
     * `pdl-alertmagic-staging.azurewebsites.net/api/notify` (test/staging system)
 - Shared secret:
     * Should be in the form `Base64EncodedUsernameAndPassword`
