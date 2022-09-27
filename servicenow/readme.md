@@ -18,8 +18,10 @@ This resulted in an incompatible URL
 
 `https://MerakiAlerts:::_4KNFuh@#$%&_nkdsjfn234^6@@venXXXX.service-now.com/api/x_caci_sg_meraki/sgmeraki_device_alerts`
 
-To solve this, 
-Instead of encoding the `username:password` in the URL as before, with templates we can now use headers to send the credentials. 
+
+**Solution:**
+
+Instead of encoding the `username:password` in the URL as before, with templates we can now use headers to base64 encode the `sharedSecret` value and apply the appropriate headers. 
 
 ```
 "Authorization":"Basic {{sharedSecret | base64_encode}}"
