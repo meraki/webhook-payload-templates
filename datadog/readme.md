@@ -1,65 +1,39 @@
 ## DataDog 
 
-[API Docs](https://docs.datadoghq.com/api/latest/events/)
+Log an event with DataDog.
 
-Log an event in DataDog.
-
-<img src="custom-template-datadog-example.png" alt="DataDog" width="500" />
+<img src="DataDog-event-screenshot.png" alt="DataDog" width="700" />
 
 <hr>
 
-### Template 
 
-- [body.liquid](body.liquid)
-- [headers.liquid](headers.liquid)
-- HTTP Server URL: 
-    - https://api.datadoghq.eu/api/v1/events
+[API Docs](https://docs.datadoghq.com/api/latest/events/)
+
+### Meraki HTTPS Server
+
+**HTTPS URL**
+- USA
     - https://api.datadoghq.com/api/v1/events
+- Europe
+    - https://api.datadoghq.eu/api/v1/events
 
-```body.liquid
-{
-    "payload": {
-        "summary": "{{alertType}}",
-        "timestamp": "{{occurredAt}}",
-        "source": "{{networkId}}",
-        "organizationId": "{{organizationId}}",
-        "severity": "{% if alertLevel == 'informational' %}info{% else %}warning{% endif %}",
-        "component": "{{deviceName}}",
-        "group": "{{networkName}}",
-        "class": "deploy",
-        "custom_details": "{{alertData | jsonify | escape}}"
-    },
-    "routing_key": "{{sharedSecret}}",
-    "dedup_key": "{{alertId}}",
-    "images": [
-        {
-            "src": "{{alertData.imageUrl}}",
-            "href": "{{alertData.imageUrl}}",
-            "alt": "Image"
-        }
-    ],
-    "links": [
-        {
-            "href": "{{deviceUrl}}",
-            "text": "Device"
-        },
-        {
-            "href": "{{networkUrl}}",
-            "text": "Network"
-        },
-        {
-            "href": "{{organizationUrl}}",
-            "text": "Organization"
-        }
-    ],
-    "event_action": "trigger",
-    "client": "Manage Meraki Device",
-    "client_url": "{{deviceUrl}}"
-}
+**Shared Secret**
 
-```
-```headers.liquid
-{
-    "DD-API-KEY":"{{sharedSecret}}"
-}
-```
+- Obtain an API key for your DataDog application.
+    - https://docs.datadoghq.com/api/latest/authentication/
+    - Manage your DataDog API and application keys [US](https://app.datadoghq.com/organization-settings/api-keys) or [EU](https://app.datadoghq.eu/organization-settings/api-keys)
+
+### Templates
+
+[Read more on GitHub](https://github.com/meraki/webhook-payload-templates/blob/main/datadog/readme.md)
+
+**body.liquid**
+
+```liquid 'body.liquid'
+
+
+**headers.liquid**
+
+```liquid 'headers.liquid'
+
+
