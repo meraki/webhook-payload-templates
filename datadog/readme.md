@@ -27,8 +27,6 @@ Use your DataDog API key as the `sharedSecret` value.
 
 ### Templates
 
-[Read more on GitHub](https://github.com/meraki/webhook-payload-templates/blob/main/datadog/readme.md)
-
 - [headers.liquid](headers.liquid)
 - [body.liquid](body.liquid)
 
