@@ -19,6 +19,8 @@ Log an event with DataDog.
 
 **Shared Secret**
 
+Use your DataDog API key as the `sharedSecret` value.
+
 - Obtain an API key for your DataDog application.
     - https://docs.datadoghq.com/api/latest/authentication/
     - Manage your DataDog API and application keys [US](https://app.datadoghq.com/organization-settings/api-keys) or [EU](https://app.datadoghq.eu/organization-settings/api-keys)
@@ -27,13 +29,7 @@ Log an event with DataDog.
 
 [Read more on GitHub](https://github.com/meraki/webhook-payload-templates/blob/main/datadog/readme.md)
 
-**body.liquid**
-
-```liquid 'body.liquid'
-
-
-**headers.liquid**
-
-```liquid 'headers.liquid'
+- [headers.liquid](headers.liquid)
+- [body.liquid](body.liquid)
 
 
