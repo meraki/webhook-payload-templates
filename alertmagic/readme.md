@@ -14,7 +14,7 @@ More information at the [AlertMagic Website](https://www.panoramicdata.com/produ
 - [headers.liquid](headers.liquid)
 - [body.liquid](body.liquid)
 - HTTP Server URLs:
-    * `pdl-alertmagic.azurewebsites.net/api/notify` (production system)
+    * `pdl-alertmagic-production.azurewebsites.net/api/notify` (production system)
     * `pdl-alertmagic-staging.azurewebsites.net/api/notify` (test/staging system)
 - Shared secret:
     * Should be in the form `Base64EncodedUsernameAndPassword`
@@ -41,24 +41,32 @@ To create your custom Network Webhooks Payload Template, use Postman:
     * Key: X-Cisco-Meraki-API-Key
     * Value: {{meraki_api_key}}
     * Add to: Header
+* Header
+    * Content-Type: application/json
 * Body
 ```
 {
     "name": "AlertMagic",
-    "type": "custom",
-    "headers": {{headers}},
+    "headers": [
+        {
+            "name": "Content-Type",
+            "template": "application/json"
+        },
+        {
+            "name": "User-Agent",
+            "template": "Meraki Webhook"
+        },
+        {
+            "name": "Authorization",
+            "template": "Bearer {{sharedSecret}}"
+        }
+    ],
     "body": {{body}}
 }
 ```
 * Pre-request script
 ```
 pm.collectionVariables.set("sharedSecret", "{{sharedSecret}}");
-
-pm.collectionVariables.set("headers", JSON.stringify(`{
-  "Content-type": "application/json",
-  "User-Agent": "Meraki WebHook",
-  "Authorization": "Bearer {{sharedSecret}}"
-}`));
 
 pm.collectionVariables.set("body", JSON.stringify(`{
   "sourceSystem": "meraki",
@@ -81,6 +89,6 @@ pm.collectionVariables.set("body", JSON.stringify(`{
   "organizationId": "{{organizationId}}",
   "organizationName": "{{organizationName}}",
   "organizationUrl": "{{organizationUrl}}",
-  "sentAd": "{{sentAt}}"
+  "sentAt": "{{sentAt}}"
 }`));
 ```
