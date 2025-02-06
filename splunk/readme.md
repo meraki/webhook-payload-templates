@@ -1,20 +1,24 @@
 # Splunk addon for Cisco Meraki
 
-The addon enables you to send webhook alerts to Splunk from Cisco Meraki.
+The addon enables you to send Meraki webhook alerts to Splunk.
 
-- [Download the addon for Meraki](https://splunkbase.splunk.com/app/5580)
-
-Get a HEC token from your Splunk instance.
-- [Splunk API Documentation](https://docs.splunk.com/Documentation/Splunk/9.4.0/Data/UsetheHTTPEventCollector)
+<img src="Meraki_Splunk_Webhook.png" alt="image_tooltip" width="600" />
 
 
 ## Configuration Steps
 
-### 1. Access Meraki Dashboard
+### 1. [Download the addon for Meraki](https://splunkbase.splunk.com/app/5580)
+
+
+### 2. Get a HEC token from your Splunk instance.
+[Splunk API Documentation](https://docs.splunk.com/Documentation/Splunk/9.4.0/Data/UsetheHTTPEventCollector)
+
+
+### 3. Access Meraki Dashboard
 1. Log in to your Meraki dashboard
 2. Navigate to Organizations > API & Webhooks in the left panel
 
-### 2. Create Splunk Webhook Template
+### 4. Create Splunk Webhook Template
 1. Go to the Webhooks tab
 2. Select Templates
 3. Click "New Template"
@@ -23,14 +27,14 @@ Get a HEC token from your Splunk instance.
    - Configure the Liquid Body (see [body.liquid](body.liquid))
    - Click "Generate Preview" to validate the schema
 
-### 3. Configure Template Headers
+### 5. Configure Template Headers
 1. In the Liquid Header section:
 2. Click "Add" and enter:
    - Key: `Authorization`
    - Value: `Splunk {{sharedSecret}}`
 3. Save the template
 
-### 4. Create Webhook Receiver
+### 6. Create Webhook Receiver
 1. Navigate to the Receivers tab
 2. Configure the new receiver:
    - Name: Enter a descriptive name
