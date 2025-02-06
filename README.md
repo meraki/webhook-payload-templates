@@ -37,6 +37,18 @@ The Liquid template language provides a number of options to present and transfo
 
 [Liquid for Designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) 
 
+# Access Nested Variables.
+
+Not all alerts will have the same properties, especially in the alertData object. To render templates safely, wrap the nested variable in a condition to ensure it exists first.
+
+```
+{
+  {% if alertData contains "eth" %} 
+  "eth": "{{alertData.eth}}" 
+  {% endif %}
+}
+```
+
 
 # Meraki Liquid Filters 
 
