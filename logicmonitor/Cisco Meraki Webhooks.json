@@ -1,0 +1,154 @@
+{
+  "collectionMethod": "webhook",
+  "resourceMapping": [
+    {
+      "originId": "oCuFXQBrRgWKf1S0hez0dQ",
+      "method": "WebhookAttribute",
+      "index": "0",
+      "comment": "This is the primary unique identifier that should exist on any Cisco Meraki device, even those that are monitored only via SNMP.",
+      "value": "deviceSerial",
+      "key": "auto.endpoint.serial_number"
+    },
+    {
+      "originId": "Y9KTFfSeSVeOnPApo5xkSQ",
+      "method": "WebhookAttribute",
+      "index": "1",
+      "comment": "Fallback in case auto.endpoint.serial_number has not been written. meraki.serial is set by the netscan or manually configured.",
+      "value": "deviceSerial",
+      "key": "meraki.serial"
+    }
+  ],
+  "searchKeywords": "",
+  "description": "",
+  "appliesTo": "",
+  "collectionAttrs": {
+    "resourceMappingOp": "OR",
+    "filterOp": "AND"
+  },
+  "filters": [
+    {
+      "op": "Equal",
+      "include": "y",
+      "originId": "ogTFMGL8QXqJeKkG4-aUGg",
+      "name": "SourceName",
+      "index": "",
+      "comment": "",
+      "value": "meraki"
+    },
+    {
+      "op": "NotContain",
+      "include": "y",
+      "originId": "-IHkYuJCSuuoPGwxRQXWcw",
+      "name": "Message",
+      "index": "",
+      "comment": "Filter out messages that pertain to network or organization-level changes rather than devices",
+      "value": "\"Settings changed\""
+    }
+  ],
+  "type": 10,
+  "technicalNotes": "This LogSource processes inbound webhook alerts from the Cisco Meraki Dashboard in real time. It does not use a LogicMonitor collector  nor does it count against Cisco Meraki Dashboard API rate limits.",
+  "version": 1756729914,
+  "registryMetadata": {
+    "currentUuid": "LX_CbBCrS2G5cDuXMOHrlA",
+    "originalUuid": "XvLC-RPeSI6gOHFOPDauyw",
+    "locatorId": "",
+    "authorCompanyUuid": "6398751c-6e82-4a29-a60f-912793c49836",
+    "registryVersion": "1.0.0",
+    "checksum": "a575e34131db8a7dfdbfbb65ef4feac2",
+    "namespace": "",
+    "registryId": "",
+    "isChangedFromOrigin": false,
+    "status": ""
+  },
+  "logFields": [
+    {
+      "originId": "sym7TaVQSBWuzS5pF18U_w",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "networkUrl",
+      "key": "networkUrl"
+    },
+    {
+      "originId": "19Ch_sfCTGe-qaYNGOFFrg",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "log_level",
+      "key": "log_level"
+    },
+    {
+      "originId": "8TOz_kCBTA-m1xoXTLCWEA",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "organizationName",
+      "key": "organizationName"
+    },
+    {
+      "originId": "kFGn8cfRRM25MhhGSQJ49w",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "networkName",
+      "key": "networkName"
+    },
+    {
+      "originId": "_Df897V-RQCJUdH94kGmDw",
+      "method": "RegexGroup",
+      "comment": "",
+      "value": "\"imageUrl\"\\s*:\\s*\"([^\"]+)\"",
+      "key": "imageUrl"
+    },
+    {
+      "originId": "zf5fBwk4TnqSWAyK_xwYxg",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "deviceSerial",
+      "key": "meraki.serial"
+    },
+    {
+      "originId": "hqwJSpwPQfuMGxKVYkwldw",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "deviceSerial",
+      "key": "auto.endpoint.serial_number"
+    },
+    {
+      "originId": "bY3LXUzDRhyQ_HM9BuOS4Q",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "networkId",
+      "key": "meraki.api.network"
+    },
+    {
+      "originId": "IAZM2rxZRn6tLdWns6EWTg",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "deviceModel",
+      "key": "deviceModel"
+    },
+    {
+      "originId": "gCN2d34MQdSMFg_5zE0nnQ",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "alertType",
+      "key": "alertType"
+    }
+  ],
+  "name": "Cisco Meraki Webhooks",
+  "collectionInterval": 0,
+  "group": "Webhooks",
+  "headers": {
+    "cache-control": "no-cache, no-store",
+    "content-disposition": "attachment; filename=\"Cisco_Meraki_Webhooks.json\"",
+    "content-encoding": "gzip",
+    "content-type": "application/json",
+    "date": "Mon, 01 Sep 2025 12:35:09 GMT",
+    "server": "LM",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "vary": "accept-encoding",
+    "x-content-type-options": "nosniff",
+    "x-rate-limit-limit": "200",
+    "x-rate-limit-remaining": "199",
+    "x-rate-limit-window": "60",
+    "x-server-version": "226-3",
+    "x-xss-protection": "0"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "collectionMethod": "webhook",
+  "resourceMapping": [
+    {
+      "originId": "_7P_h2W7QZW_btUuAe-O9Q",
+      "method": "WebhookAttribute",
+      "index": "0",
+      "comment": "Used for mapping to Services for tracking configuration changes that happen at the network level.",
+      "value": "networkId",
+      "key": "meraki.api.network"
+    },
+    {
+      "originId": "bicMgdJCRwO_R_5NsBxPnQ",
+      "method": "Static",
+      "index": "1",
+      "comment": "Try to map to services",
+      "value": "6",
+      "key": "system.devicetype"
+    }
+  ],
+  "searchKeywords": "",
+  "description": "",
+  "appliesTo": "",
+  "collectionAttrs": {
+    "resourceMappingOp": "AND",
+    "filterOp": "AND"
+  },
+  "filters": [
+    {
+      "op": "Equal",
+      "include": "y",
+      "originId": "4ow1od3vSz6JBaqijejGhg",
+      "name": "SourceName",
+      "index": "",
+      "comment": "",
+      "value": "meraki"
+    },
+    {
+      "op": "Contain",
+      "include": "y",
+      "originId": "nlN-FUrmS9iGmzT4TbxnRw",
+      "name": "Message",
+      "index": "",
+      "comment": "",
+      "value": "\"Settings changed\""
+    }
+  ],
+  "type": 10,
+  "technicalNotes": "This LogSource processes inbound webhook alerts from the Cisco Meraki Dashboard in real time. It does not use a LogicMonitor collector  nor does it count against Cisco Meraki Dashboard API rate limits.",
+  "version": 1756729894,
+  "registryMetadata": {
+    "currentUuid": "iXHRT-VBTjeqECeOK9wKKg",
+    "originalUuid": "XvLC-RPeSI6gOHFOPDauyw",
+    "locatorId": "",
+    "authorCompanyUuid": "6398751c-6e82-4a29-a60f-912793c49836",
+    "registryVersion": "1.0.0",
+    "checksum": "9279d28b2b2f5c3e1d51695955290c77",
+    "namespace": "",
+    "registryId": "",
+    "isChangedFromOrigin": true,
+    "status": ""
+  },
+  "logFields": [
+    {
+      "originId": "Wurl1BViTgubm7cwNDMzsA",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "networkUrl",
+      "key": "networkUrl"
+    },
+    {
+      "originId": "8PHD_0mPShaIMFbl6qXbKQ",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "log_level",
+      "key": "log_level"
+    },
+    {
+      "originId": "CHYcUqg4SSmZ4zbbw-OMDA",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "organizationName",
+      "key": "organizationName"
+    },
+    {
+      "originId": "TW0cHbFMR0W7PS4ntQkNXQ",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "networkName",
+      "key": "networkName"
+    },
+    {
+      "originId": "nNLa6CODT-WNmTqxU3hqlw",
+      "method": "RegexGroup",
+      "comment": "",
+      "value": "\"imageUrl\"\\s*:\\s*\"([^\"]+)\"",
+      "key": "imageUrl"
+    },
+    {
+      "originId": "U3t4DTCYTyGZAojASKgaoQ",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "deviceSerial",
+      "key": "meraki.serial"
+    },
+    {
+      "originId": "B5JDOYhjTAyXk7MpHQA53Q",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "deviceSerial",
+      "key": "auto.endpoint.serial_number"
+    },
+    {
+      "originId": "PcLaMg_uQOGatf5AJUCD3A",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "networkId",
+      "key": "meraki.api.network"
+    },
+    {
+      "originId": "PBpfdl1hR7WX8xBO1C5jew",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "deviceModel",
+      "key": "deviceModel"
+    },
+    {
+      "originId": "o3a0PVj9Tgu_b0TpEfAjZw",
+      "method": "WebhookAttribute",
+      "comment": "",
+      "value": "alertType",
+      "key": "alertType"
+    }
+  ],
+  "name": "Cisco Meraki Webhooks for Services",
+  "collectionInterval": 0,
+  "group": "Webhooks",
+  "headers": {
+    "cache-control": "no-cache, no-store",
+    "content-disposition": "attachment; filename=\"Cisco_Meraki_Webhooks_for_Services.json\"",
+    "content-encoding": "gzip",
+    "content-type": "application/json",
+    "date": "Mon, 01 Sep 2025 12:35:18 GMT",
+    "server": "LM",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "vary": "accept-encoding",
+    "x-content-type-options": "nosniff",
+    "x-rate-limit-limit": "200",
+    "x-rate-limit-remaining": "199",
+    "x-rate-limit-window": "60",
+    "x-server-version": "226-3",
+    "x-xss-protection": "0"
+  }
+}
