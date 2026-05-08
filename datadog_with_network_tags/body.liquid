@@ -1,0 +1,42 @@
+{% assign level="info" %}
+{% if alertLevel == "error"%}
+{% assign level="error" %}
+{% endif %}
+{% if alertLevel == "warning"%}
+{% assign level="warning" %}
+{% endif %}
+
+{% capture markdown %}
+%%%
+### Alert Level: **{{alertLevel}}**
+
+> - **Organization** - [{{organizationName}}]({{organizationUrl}})
+> - **Network** -[{{networkName}}]({{networkUrl}})
+> - **Device** - [{{deviceName}}]({{deviceUrl}})
+
+### Alert Data
+| Property   |      Value      |
+|----------|:-------------:|
+{%- for item in alertData %}
+{%- if item[0] == "imageUrl" %}
+| {{item[0]}} |  \[image\]({{item[1]}})|
+{%- else %} 
+| {{item[0]}} |  {{item[1] | jsonify}}| 
+{%- endif %}
+{%- endfor %}
+
+{% if alertData.imageUrl %}
+## Image
+![]({{alertData.imageUrl}})
+{% endif %}
+
+%%%
+{% endcapture %}
+
+{
+  "title": "{{alertType}}",
+  "text": {{markdown | jsonify}},
+  "source_type_name":"meraki",
+  "alert_type":"{{level}}",
+  "tags":["{{networkName}}","{{deviceName}}"]
+}
